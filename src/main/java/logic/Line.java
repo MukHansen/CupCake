@@ -10,5 +10,15 @@ package logic;
  * @author Bruger
  */
 public class Line {
+    private CompleteCupCake cupcake;
+    private int qty;
+    //private int invoiceID;
+
+    public Line(CompleteCupCake cupcake, int qty/*, int invoiceID*/) {
+        this.cupcake = cupcake;
+        this.qty = qty;
+        //this.invoiceID = invoiceID;
+    }
+    
     
 }

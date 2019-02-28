@@ -10,5 +10,19 @@ package logic;
  * @author Bruger
  */
 public class CompleteCupCake {
-    
+    private String name;
+    private int price;
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public CompleteCupCake(String name, int price) {
+        this.name = name;
+        this.price = price;
+    }
 }

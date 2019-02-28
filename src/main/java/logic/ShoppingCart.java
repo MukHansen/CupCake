@@ -5,10 +5,14 @@
  */
 package logic;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Bruger
  */
 public class ShoppingCart {
+    private List<Line> LineItems = new ArrayList<>();
     
 }
