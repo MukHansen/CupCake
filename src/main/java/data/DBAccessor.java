@@ -44,7 +44,7 @@ public class DBAccessor {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(list + "uuuuuuuuuuu");
+        System.out.println(list.size() + "uuuuuuuuuuu");
         return list;
     }
 
@@ -72,26 +72,4 @@ public class DBAccessor {
         System.out.println(CupCake + "++++++++++++++++");
         return CupCake;
     }
-
-    public double getGlassPrice(){
-        double price = 0;
-
-        try {
-            DBConnector c = new DBConnector();
-
-            String query = "SELECT * FROM glass;";
-
-            Connection connection = c.getConnection();
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-            while (rs.next()) {
-                price = rs.getInt("glass_price");
-            }
-            return price;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return price;
-    }
-
 }
