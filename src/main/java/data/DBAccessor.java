@@ -18,9 +18,12 @@ import java.util.List;
 public class DBAccessor {
     
     public static void main(String[] args) {
+        System.out.println("Start");
         getAllCupCakes();
         String Jordbær = "Jordbær";
-        getCupCake(Jordbær);
+        CompleteCupCake j = getCupCake(Jordbær);
+        System.out.println("CupCake found: " + j.getName());
+        System.out.println(getAllCupCakes().toString());
         
     }
 
@@ -44,7 +47,7 @@ public class DBAccessor {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(list.size() + "uuuuuuuuuuu");
+        System.out.println(list + "uuuuuuuuuuu");
         return list;
     }
 
