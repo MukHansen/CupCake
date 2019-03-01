@@ -3,30 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logic;
+package data;
 
 /**
  *
  * @author Bruger
  */
-public class User {
+public class CompleteCupCake {
     private String name;
-    private String password;
-    private int balance;
+    private int price;
 
     public String getName() {
         return name;
     }
 
-    public int getBalance() {
-        return balance;
+    public int getPrice() {
+        return price;
     }
-    private String email;
 
-    public User(String name, String password, int balance) {
+    public CompleteCupCake(String name, int price) {
         this.name = name;
-        this.password = password;
-        this.balance = balance;
+        this.price = price;
     }
-    
 }

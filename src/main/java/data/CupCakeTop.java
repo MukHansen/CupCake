@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logic;
-
-import java.util.ArrayList;
-import java.util.List;
+package data;
 
 /**
  *
  * @author Bruger
  */
-public class ShoppingCart {
-    private List<Line> LineItems = new ArrayList<>();
+public class CupCakeTop {
     
 }

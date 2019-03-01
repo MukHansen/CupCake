@@ -9,6 +9,6 @@ package logic;
  *
  * @author Bruger
  */
-public class CupCakeBottom {
+public class Controller {
     
 }

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logic;
+package data;
 
 /**
  *
  * @author Bruger
  */
-public class DataMapper {
+public class CupCakeBottom {
     
 }
