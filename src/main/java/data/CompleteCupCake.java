@@ -25,4 +25,10 @@ public class CompleteCupCake {
         this.name = name;
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "CompleteCupCake{" + "name=" + name + ", price=" + price + '}';
+    }
+    
 }
