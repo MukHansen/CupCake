@@ -72,12 +72,10 @@ public class DBAccessor {
                 int price = rs.getInt("c_price");
                 CupCake = new CompleteCupCake(name, price);
             }
-            System.out.println(CupCake + " ------------------ ");
             return CupCake;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(CupCake + "++++++++++++++++");
         return CupCake;
     }
 
