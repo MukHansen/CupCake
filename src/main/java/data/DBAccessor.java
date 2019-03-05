@@ -20,6 +20,8 @@ public class DBAccessor {
 
     /*
     public static void main(String[] args) {
+    
+        System.out.println(getAllCupCakes().toString());
         System.out.println(getUser("John").toString());
         createUser("John", "1234", "Teeest@testmail.dk", 1000);
 
@@ -51,7 +53,6 @@ public class DBAccessor {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(list + "uuuuuuuuuuu");
         return list;
     }
 
