@@ -17,7 +17,7 @@
             String pass = request.getParameter("password");
             
             out.println(user);
-            out.println(pass);
+            out.println(pass); 
         
         %>
         
