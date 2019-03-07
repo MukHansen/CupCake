@@ -23,6 +23,14 @@ public class User {
         return balance;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
     public User(String name, String password, String email, int balance) {
         this.name = name;
         this.password = password;
