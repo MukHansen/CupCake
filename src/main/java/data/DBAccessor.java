@@ -10,7 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -34,7 +33,7 @@ public class DBAccessor {
         System.out.println(getAllCupCakes().toString()); 
     }
      */
-    public List<CompleteCupCake> getAllCupCakes() {
+    public ArrayList<CompleteCupCake> getAllCupCakes() {
         ArrayList<CompleteCupCake> list = new ArrayList<>();
 
         try {
