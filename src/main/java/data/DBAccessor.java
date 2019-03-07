@@ -20,7 +20,8 @@ public class DBAccessor {
 
     /*
     public static void main(String[] args) {
-    
+      
+        System.out.println(getCupCakePrice("Jordbær"));
         System.out.println(getAllCupCakes().toString());
         System.out.println(getUser("John").toString());
         createUser("John", "1234", "Teeest@testmail.dk", 1000);
@@ -77,6 +78,28 @@ public class DBAccessor {
             e.printStackTrace();
         }
         return CupCake;
+    }
+
+    public int getCupCakePrice(String name) {
+        int price = 0;
+
+        try {
+            DBConnector c = new DBConnector();
+
+            String query = "SELECT c_price FROM CupCakes_list WHERE c_name ='" + name + "';";
+
+            Connection connection = c.getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+
+                price = rs.getInt("c_price");
+            }
+            return price;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return price;
     }
 
     public User getUser(String name) {
