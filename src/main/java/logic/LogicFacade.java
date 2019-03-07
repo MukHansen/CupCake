@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author Bruger
  */
-public class LogicFacade {
+public class LogicFacade extends CalculateNewBalance{
     
     private DBAccessor data;
     
@@ -25,8 +25,10 @@ public class LogicFacade {
         int balance = data.getBalance(name);
         return balance;
     }
-    public void setUserBalanceInDATA(String name, int newBalance){
-        
-        int Balance = logic.CalculateNewBalance(newBalance);
+    public void setUserBalanceInDATA(String name, int supFromBalance){
+        // klassen skal måske tage et parmereter mere => oldUserBalance
+        int Balance = calculateNewBalance(data.getBalance(name), supFromBalance);
+       
+        data.setBalance(name, Balance);
     }
 } 

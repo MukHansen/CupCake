@@ -9,7 +9,7 @@ package logic;
  *
  * @author Christian Ambjørn Kehr
  */
-public class CalculateNewBalance extends LogicFacade{
+public class CalculateNewBalance{
 
     public int calculateNewBalance(int userBalance, int dif) {
         // kan give problemer (skal måske catch dif = null eller dif = 0)

@@ -164,4 +164,23 @@ public class DBAccessor {
         }
         return balance;
     }
+    public int setBalance(String name, int newUserBalance){
+        
+        int balance = newUserBalance; 
+        try {
+            DBConnector c = new DBConnector();
+            Connection connection = c.getConnection();
+
+            String insert = "UPDATE Users SET Users.Userbalance =" + newUserBalance + " WHERE UserName = '" + name + "';"; 
+
+            Statement stmt = connection.createStatement();
+            PreparedStatement preparedStmt = connection.prepareStatement(insert);
+            preparedStmt.execute();
+            return balance;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return balance;
+    }
+    
 }
