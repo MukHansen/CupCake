@@ -22,6 +22,9 @@ import logic.LogicFacade;
 public class FrontController extends HttpServlet {
     private LogicFacade logic;
     private ArrayList listOfCupCakes = logic.allCupCakes();
+    //næste kan bare sættes i // efter behov. ansvar = chris. 
+    private String name = request.getParameter("username");
+    private int balance = logic.getUserBalance(name);
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -36,9 +39,30 @@ public class FrontController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setAttribute("mytable", listOfCupCakes);
         request.getRequestDispatcher("shop.jsp").forward(request, response);
+        
+        
+        
+        response.setContentType("text/html;charset=UTF-8");
+        
+        String origin = request.getParameter("origin");
+        switch (origin) {
+            case "index":
+                index(request, response);
+                break;
+            case "login":
+                login(request, response);
+                break;
+            case "Shop":
+                Shop(request, response);
+                break;
+            case "Shoppingcart":
+                Shoppingcart(request, response);
+                break;
+            default:
+                throw new AssertionError();
+        }
 
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

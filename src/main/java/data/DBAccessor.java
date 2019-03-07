@@ -143,4 +143,25 @@ public class DBAccessor {
         }
         return user;
     }
+
+    public int getBalance(String name) {
+        int balance = 0;
+        try {
+            DBConnector c = new DBConnector();
+
+            String query = "SELECT Userbalance FROM CupCake.Users where Username = '" + name + "' ;";
+
+            Connection connection = c.getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+
+                balance = rs.getInt("Userbalance");
+            }
+            return balance;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return balance;
+    }
 }

@@ -21,4 +21,12 @@ public class LogicFacade {
         ArrayList<CompleteCupCake> list = data.getAllCupCakes();
         return list;
     }
-}
+    public int getUserBalance(String name){
+        int balance = data.getBalance(name);
+        return balance;
+    }
+    public void setUserBalanceInDATA(String name, int newBalance){
+        
+        int Balance = logic.CalculateNewBalance(newBalance);
+    }
+} 
