@@ -13,13 +13,15 @@
     </head>
     <body>
         <%
-            String user = request.getParameter("name");
-            String pass = request.getParameter("password");
-            
-            out.println(user);
-            out.println(pass); 
-        
-        %>
-        
+            String name = (String) request.getAttribute("name");
+            if (name != null) {
+                out.print(name);
+            }
+            String pass = (String) request.getAttribute("password");
+            if (pass != null) {
+                out.print(pass);
+            }
+        %>  
+
     </body>
 </html>
