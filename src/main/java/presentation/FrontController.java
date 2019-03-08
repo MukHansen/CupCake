@@ -20,12 +20,13 @@ import logic.LogicFacade;
  */
 @WebServlet(name = "FrontController", urlPatterns = {"/FrontController"})
 public class FrontController extends HttpServlet {
+
     private LogicFacade logic;
-    private ArrayList listOfCupCakes = logic.allCupCakes();
     private HttpServletRequest request;
     //næste kan bare sættes i // efter behov. ansvar = chris. 
     private String name = request.getParameter("username");
     private int balance = logic.getUserBalance(name);
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -37,14 +38,9 @@ public class FrontController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         response.setContentType("text/html;charset=UTF-8");
-        request.setAttribute("mytable", listOfCupCakes);
-        request.getRequestDispatcher("shop.jsp").forward(request, response);
-        
-        
-        
-        response.setContentType("text/html;charset=UTF-8");
-        
+
         String origin = request.getParameter("origin");
         switch (origin) {
             case "index":
@@ -64,6 +60,7 @@ public class FrontController extends HttpServlet {
         }
 
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -103,5 +100,23 @@ public class FrontController extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-}
+    private void index(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
+    private void login(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void Shop(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        
+        request.setAttribute("mytable", logic.allCupCakes());
+        request.getRequestDispatcher("shop.jsp").forward(request, response);
+    }
+
+    private void Shoppingcart(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+}
