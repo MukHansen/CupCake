@@ -42,7 +42,7 @@
                     color: white;
                 }
             </style>
-            <li><a href="Shoppingcart.jsp">Shoppingcart</a></li>
+            <li><a href="shoppingcart.jsp">Shoppingcart</a></li>
         </ul>
         <label style="margin-right: 150;">CupCakes</label>
         <select class="form-control" style="width: 250;">
