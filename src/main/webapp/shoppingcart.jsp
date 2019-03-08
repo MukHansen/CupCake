@@ -21,16 +21,14 @@
 
                 <thead><tr><th>name</th><th>qty</th><th>price</th></tr></thead> <tbody>
                             //skal muligvisvære lines i shopping cart
-                                <% List<shoppingcart> ShoppingCart = (List<ShoppingCart>) request.getAttribute("mytable");
-                                for (Line line : Line) {
-                            %>
+                           
 
                     <tr>
                         // skal muligvis være shoppingcart
-                        <td><%= line.getName()%></td><td><%= line.qty()%></td><td><%= line.getPrice()%></td>
+                       
                     </tr>
                     <%
-                        }
+                       
                     %>
                 </tbody>
             </table>
