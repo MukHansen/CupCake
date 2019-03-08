@@ -22,6 +22,7 @@ import logic.LogicFacade;
 public class FrontController extends HttpServlet {
     private LogicFacade logic;
     private ArrayList listOfCupCakes = logic.allCupCakes();
+    private HttpServletRequest request;
     //næste kan bare sættes i // efter behov. ansvar = chris. 
     private String name = request.getParameter("username");
     private int balance = logic.getUserBalance(name);
