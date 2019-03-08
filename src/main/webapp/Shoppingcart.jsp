@@ -12,14 +12,28 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <%
-        int trial = integer.parseInt(request.getParmeter("num2"));
-        int balance = integer.parseInt(request.getParmeter("num1"));
+        <form action="MyServlet" method="GET">
+                <input type="text" name="username"/>
+                <input type="text" name="password"/>
+                <input type="submit" value="gå til server"/>
+            </form>
+            <table class="table table-striped">
+
+                <thead><tr><th>name</th><th>qty</th><th>price</th></tr></thead> <tbody>
+                            //skal muligvisvære lines i shopping cart
+                                <% List<shoppingcart> ShoppingCart = (List<ShoppingCart>) request.getAttribute("mytable");
+                                for (Line line : Line) {
+                            %>
+
+                    <tr>
+                        // skal muligvis være shoppingcart
+                        <td><%= line.getName()%></td><td><%= line.qty()%></td><td><%= line.getPrice()%></td>
+                    </tr>
+                    <%
+                        }
+                    %>
+                </tbody>
+            </table>
         
-        int k = trial + balance;
-        
-        out.print(k); 
-        %>
     </body>
 </html>
