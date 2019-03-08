@@ -22,12 +22,25 @@
     <body>
         <ul>
             <style>
+                .dropbtn {
+                    background-color: #4CAF50;
+                    color: white;
+                    padding: 16px;
+                    font-size: 16px;
+                    border: none;
+                    cursor: pointer;
+                }
+                .dropdown-content a:hover {background-color: #f1f1f1}
+
+                .dropdown:hover .dropdown-content {
+                    display: block;
+                }
                 ul {
                     border-radius: 20px;
                     margin: 0;
                     padding: 0;
                     width: 150px;
-                    background-color: #33ff33;
+                    background-color: #4CAF50;
                 }
                 li a {
                     text-align: center;
@@ -45,25 +58,30 @@
             <li><a href="shoppingcart.jsp">Shoppingcart</a></li>
         </ul>
         <label style="margin-right: 150;">CupCakes</label>
-        <select class="form-control" style="width: 250;">
-            <option value="-1">Choose CupCake
-            <%
-                request.getAttribute("mytable");
-                
-            %>
+        <select class="dropddown" style="width: 250;">
+            <option value="mytable">Choose CupCake
             </option>
         </select>
-        <label>Quantity</label>
-
+        <div class="dropdown">
+            <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+                <% request.getAttribute("mytable");
+                %>
+            </div>
+        </div>
+            <form action="" method="GET">
+                <input type="numbers" name="Quantity"/>
+                <input type="submit" value="Accept"/>
+            </form>
 
 
         <table>
 
-                        <%--
-            <thead><tr><th>name</th><th>price</th></tr></thead>
-                            request.getAttribute("mytable");
-                            ArrayList<CompleteCupCake> Cakes = (ArrayList<CompleteCupCake>) request.getAttribute("mytable");
-                            for (int i = 0; i < Cakes.size(); i++) {
+            <%--
+    <thead><tr><th>name</th><th>price</th></tr></thead>
+                request.getAttribute("mytable");
+                ArrayList<CompleteCupCake> Cakes = (ArrayList<CompleteCupCake>) request.getAttribute("mytable");
+                for (int i = 0; i < Cakes.size(); i++) {
 
                         %>
             <tbody><tr>
@@ -71,7 +89,7 @@
                 </tr></tbody>
                 <%
                     }
-                        --%>
+            --%>
         </table>
     </body>
 </html>
