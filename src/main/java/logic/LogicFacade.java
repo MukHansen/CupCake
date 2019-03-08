@@ -13,22 +13,29 @@ import java.util.ArrayList;
  *
  * @author Bruger
  */
-public class LogicFacade extends CalculateNewBalance{
-    
+public class LogicFacade extends CalculateNewBalance {
+
     private DBAccessor data;
-    
-    public ArrayList<CompleteCupCake> allCupCakes() {
+    private CompleteCupCake Cake;
+
+    public CompleteCupCake[] allCupCakes() {
         ArrayList<CompleteCupCake> list = data.getAllCupCakes();
-        return list;
+        CompleteCupCake[] Cakes = new CompleteCupCake[list.size()];
+        for (int i = 0; i <= list.size(); i++) {
+            Cakes[i] = list.get(i);
+        }
+        return Cakes;
     }
-    public int getUserBalance(String name){
+
+    public int getUserBalance(String name) {
         int balance = data.getBalance(name);
         return balance;
     }
-    public void setUserBalanceInDATA(String name, int supFromBalance){
+
+    public void setUserBalanceInDATA(String name, int supFromBalance) {
         // klassen skal måske tage et parmereter mere => oldUserBalance
         int Balance = calculateNewBalance(data.getBalance(name), supFromBalance);
-       
+
         data.setBalance(name, Balance);
     }
-} 
+}
