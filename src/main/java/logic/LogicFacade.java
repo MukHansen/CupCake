@@ -15,16 +15,11 @@ import java.util.ArrayList;
  */
 public class LogicFacade extends CalculateNewBalance {
 
-    private DBAccessor data;
-    private CompleteCupCake Cake;
+    private DBAccessor data = new DBAccessor();
 
-    public CompleteCupCake[] allCupCakes() {
+    public ArrayList<CompleteCupCake> allCupCakes() {
         ArrayList<CompleteCupCake> list = data.getAllCupCakes();
-        CompleteCupCake[] Cakes = new CompleteCupCake[list.size()];
-        for (int i = 0; i <= list.size(); i++) {
-            Cakes[i] = list.get(i);
-        }
-        return Cakes;
+        return list;
     }
 
     public int getUserBalance(String name) {

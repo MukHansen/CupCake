@@ -20,12 +20,12 @@ import logic.LogicFacade;
  */
 @WebServlet(name = "FrontController", urlPatterns = {"/FrontController"})
 public class FrontController extends HttpServlet {
-
-    private LogicFacade logic;
+    
+    private LogicFacade logic = new LogicFacade();
     private HttpServletRequest request;
     //næste kan bare sættes i // efter behov. ansvar = chris. 
-    private String name = request.getParameter("username");
-    private int balance = logic.getUserBalance(name);
+    //private String name = request.getParameter("username");
+    //private int balance = logic.getUserBalance(name);
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -49,8 +49,8 @@ public class FrontController extends HttpServlet {
             case "login":
                 login(request, response);
                 break;
-            case "Shop":
-                Shop(request, response);
+            case "shop":
+                shop(request, response);
                 break;
             case "Shoppingcart":
                 Shoppingcart(request, response);
@@ -108,7 +108,7 @@ public class FrontController extends HttpServlet {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void Shop(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void shop(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
         request.setAttribute("mytable", logic.allCupCakes());

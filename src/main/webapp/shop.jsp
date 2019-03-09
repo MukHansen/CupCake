@@ -58,15 +58,19 @@
             <li><a href="shoppingcart.jsp">Shoppingcart</a></li>
         </ul>
         <label style="margin-right: 150;">CupCakes</label>
+        <% List<CompleteCupCake> cupCakes = (List<CompleteCupCake>)request.getAttribute("mytable");
+                %>
         <select class="dropddown" style="width: 250;">
-            <option value="mytable">Choose CupCake
-            </option>
+            <option value="mytable">Choose CupCake</option>
+            <% for (CompleteCupCake cupCake : cupCakes){ %>
+                
+            <option value="h"><%= cupCake.getName() %></option>
+            <% } %>
         </select>
         <div class="dropdown">
             <button class="dropbtn">Dropdown</button>
             <div class="dropdown-content">
-                <% request.getAttribute("mytable");
-                %>
+                
             </div>
         </div>
             <form action="" method="GET">
