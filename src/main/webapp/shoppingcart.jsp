@@ -19,7 +19,7 @@
     <body>
         <div class="container">
             <h2>Shoppingcart</h2>
-            <p>Noter kan indsættes her:</p>            
+            <p>find inspiration her: https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_table_basic&stacked=h</p>            
             <table class="table">
                 <thead>
                     <tr>
@@ -39,22 +39,18 @@
                         <td>${Line.total}</td>
 
                     </tr>
-
                 </c:forEach>
+                <%
 
-                </tr
+                %>
+            </table
 
-                </tbody>
-            </table>
         </div>
+    </div>
 
-
-
-        <%
-
-        %>
-    </tbody>
-</table>
-
-</body>
+</body
+<form action="" method="GET">
+    <input type="submit" value="Confirm"/>
+</form>
 </html>
+
