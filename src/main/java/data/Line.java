@@ -5,14 +5,14 @@
  */
 package data;
 
-import data.CompleteCupCake;
+
 
 /**
  *
  * @author Bruger
  */
 public class Line {
-    private CompleteCupCake cupcake;
+    private CompleteCupCake cupcake = new CompleteCupCake("Choko",2);
     private int qty;
     //private int invoiceID;
 
@@ -21,6 +21,12 @@ public class Line {
         this.qty = qty;
         //this.invoiceID = invoiceID;
     }
-    
-    
+
+    public CompleteCupCake getCupcake() {
+        return cupcake;
+    }
+
+    public int getQty() {
+        return qty;
+    }
 }

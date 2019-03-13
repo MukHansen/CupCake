@@ -112,6 +112,10 @@ public class FrontController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         request.setAttribute("mytable", logic.allCupCakes());
+        
+        String username = request.getParameter("username");
+        request.getSession().setAttribute("username", username);
+        
         request.getRequestDispatcher("shop.jsp").forward(request, response);
     }
 
