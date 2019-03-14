@@ -19,7 +19,7 @@
         <title>Shop</title>
     </head>
     <body>
-        <h2>Welcome <% out.print(request.getAttribute("username")); %></h2>
+        <h2>Welcome <% out.print(request.getAttribute("username")); %></h2><h3>Balance = <% out.print(request.getAttribute("userBalance")); %></h3>
         <ul>
             <style>
                 ul {
@@ -43,6 +43,9 @@
                 }
                 h2 {
                     text-align: center;
+                }
+                h3{
+                    text-align: right;
                 }
                 table, th, td {
                     border: 1px solid black;
