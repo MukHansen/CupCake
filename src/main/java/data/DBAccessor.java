@@ -102,7 +102,7 @@ public class DBAccessor {
         return price;
     }
 
-    public User getUser(String name) {
+     public User getUser(String name) {
         User user = null;
 
         try {
@@ -125,7 +125,7 @@ public class DBAccessor {
         }
         return user;
     }
-
+    
     public User createUser(String name, String password, String email, int balance) {
         User user = null;
 
@@ -189,4 +189,34 @@ public class DBAccessor {
         return sc.getLineItems();
     }
     
+    public VerifyLogin VeryfiLogin(String name, String password) {
+        VerifyLogin verifylogin = null;
+        String DBname;
+        String DBpassword;
+        boolean login = false; 
+
+        try {
+            DBConnector c = new DBConnector();
+
+            String query = "SELECT UserName, UserPassword FROM Users;";
+
+            Connection connection = c.getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                DBname = rs.getString("UserName");
+                DBpassword = rs.getString("UserPassword");
+                
+                if (DBname.equals(name) && DBpassword.equals(password)){
+                    System.out.println("OK");
+                    login = true;
+                }
+                System.out.println(name + password + " " + DBname + DBpassword);
+            }
+           
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return verifylogin;
+    } 
 }
