@@ -20,14 +20,14 @@ public class CalculateNewBalance{
     private Line LineI = new Line(cupcake,2, 50);
     private DBAccessor dBA = new DBAccessor();
 
-     public int calculateNewBalance(int userBalance, int dif) {
-        int newBalance = userBalance - dif;
+     public double calculateNewBalance(double userBalance, double dif) {
+        double newBalance = userBalance - dif;
         return newBalance;
     }
     
-    public int calculateTotalPrice(ArrayList<Line> LineItems){
-        int price = 0;
-        int priceOfTheseCupcakes = 0;
+    public double calculateTotalPrice(ArrayList<Line> LineItems){
+        double price = 0;
+        double priceOfTheseCupcakes = 0;
         
         for (Line LineI : LineItems) {
             priceOfTheseCupcakes = LineI.getQty() * dBA.getCupCakePrice(cupcake.getName());

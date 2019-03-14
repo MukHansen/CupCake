@@ -10,6 +10,7 @@
 <%@page import="data.CompleteCupCake"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.*"%>
+<%@page import="data.Line"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,7 +20,7 @@
         <title>Shop</title>
     </head>
     <body>
-        <h2>Welcome <% out.print(request.getAttribute("username")); %></h2><h3>Balance = <% out.print(request.getAttribute("userBalance")); %></h3>
+        <h2>Welcome <% out.print("John " + request.getAttribute("username")); %></h2><h3>Balance = <% out.print(request.getAttribute("userBalance")); %></h3>
         <ul>
             <style>
                 ul {
@@ -63,8 +64,21 @@
                 .radiotext {
                     margin: 10px 10px 0px 0px;
                 }
+                .button {
+                    background-color: #4CAF50; /* Green */
+                    border-radius: 20px;
+                    color: black;
+                    padding: 16px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    transition-duration: 0.4s;
+                    cursor: pointer;
+                }
             </style>
-            <li><a href="shoppingcart.jsp">Shoppingcart</a></li>
+            <li><a href="shoppingcart.jsp" action="<% %>">Shoppingcart</a></li>
         </ul>
         <table class="table table-striped">
 
@@ -81,6 +95,15 @@
                 %>
             </tbody>
         </table>
+                <h3><button class="button button1" action="<%-- request.setAttribute("order", shoppingcartContent); --%>">Submit</button></h3>
+            <%-- 
+            if (%> input   <% != 0){
+                
+            }
+                --%>
+                
+                
+                
         <%--  <% List<CompleteCupCake> cupCakes = (List<CompleteCupCake>) request.getAttribute("mytable"); 
           %>
           <select class="dropddown">

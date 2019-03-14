@@ -7,6 +7,7 @@ package logic;
 
 import data.CompleteCupCake;
 import data.DBAccessor;
+import data.Line;
 import java.util.ArrayList;
 import static java.util.Collections.list;
 import java.util.List;
@@ -24,20 +25,22 @@ public class LogicFacade extends CalculateNewBalance {
         return list;
     }
 
-    public int getUserBalance(String name) {
-        int balance = data.getBalance(name);
+    public double getUserBalance(String name) {
+        double balance = data.getBalance(name);
         return balance;
     }
 
-    public void setUserBalanceInDATA(String name, int supFromBalance) {
+    public void setUserBalanceInDATA(String name, double supFromBalance) {
         // klassen skal måske tage et parmereter mere => oldUserBalance
-        int Balance = calculateNewBalance(data.getBalance(name), supFromBalance);
+        double Balance = calculateNewBalance(data.getBalance(name), supFromBalance);
 
         data.setBalance(name, Balance);
     }
 
     public List getShoppingcart() {
         return data.getShoppingcart();
-         
+    }
+    public List addContentToShoppingcart(ArrayList<Line> list){
+        return data.addToShoppingcart(list);
     }
 }

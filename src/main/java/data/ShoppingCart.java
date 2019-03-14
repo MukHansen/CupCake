@@ -18,5 +18,4 @@ public class ShoppingCart {
     public List<Line> getLineItems() {
         return LineItems;
     }
-    
 }

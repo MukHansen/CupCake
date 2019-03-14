@@ -17,7 +17,7 @@ import java.util.List;
  * @author Bruger
  */
 public class DBAccessor {
-
+    private ShoppingCart sc = new ShoppingCart();
     /*
     public static void main(String[] args) {
       
@@ -47,7 +47,7 @@ public class DBAccessor {
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
                 String name = rs.getString("c_name");
-                int price = rs.getInt("c_price");
+                double price = rs.getDouble("c_price");
 
                 list.add(new CompleteCupCake(name, price));
             }
@@ -145,8 +145,8 @@ public class DBAccessor {
         return user;
     }
 
-    public int getBalance(String name) {
-        int balance = 0;
+    public double getBalance(String name) {
+        double balance = 0;
         try {
             DBConnector c = new DBConnector();
 
@@ -165,9 +165,9 @@ public class DBAccessor {
         }
         return balance;
     }
-    public int setBalance(String name, int newUserBalance){
+    public double setBalance(String name, double newUserBalance){
         
-        int balance = newUserBalance; 
+        double balance = newUserBalance; 
         try {
             DBConnector c = new DBConnector();
             Connection connection = c.getConnection();
@@ -185,7 +185,6 @@ public class DBAccessor {
     }
 
     public List getShoppingcart() {
-       ShoppingCart sc = new ShoppingCart();
         return sc.getLineItems();
     }
     
@@ -219,4 +218,14 @@ public class DBAccessor {
         }
         return verifylogin;
     } 
+
+    public List addToShoppingcart(ArrayList<Line> list) {
+        List res = null;
+        CompleteCupCake cupcake = new CompleteCupCake("Jordbær", 25);
+        Line line = new Line(cupcake, 2, 25);
+        for (Line l : list) {
+            res.add(l);
+        }
+        return res;
+    }
 }

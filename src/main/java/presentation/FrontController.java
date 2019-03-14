@@ -23,7 +23,6 @@ import logic.LogicFacade;
 public class FrontController extends HttpServlet {
     
     private LogicFacade logic = new LogicFacade();
-    private HttpServletRequest request;
     //næste kan bare sættes i // efter behov. ansvar = chris. 
     //private String name = request.getParameter("username");
     //private int balance = logic.getUserBalance(name);
@@ -110,6 +109,7 @@ public class FrontController extends HttpServlet {
     }
 
     private void shop(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ArrayList shoppingcartContent = null;
         response.setContentType("text/html;charset=UTF-8");
         
         request.setAttribute("mytable", logic.allCupCakes());
@@ -118,6 +118,9 @@ public class FrontController extends HttpServlet {
         request.getSession().setAttribute("username", username);
         
         request.getRequestDispatcher("shop.jsp").forward(request, response);
+        request.getSession().getAttribute("order");
+        
+        request.setAttribute("order", logic.addContentToShoppingcart(shoppingcartContent));
     }
 
     private void Shoppingcart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
