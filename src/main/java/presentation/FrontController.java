@@ -53,7 +53,7 @@ public class FrontController extends HttpServlet {
             case "shop":
                 shop(request, response);
                 break;
-            case "Shoppingcart":
+            case "shoppingcart":
                 Shoppingcart(request, response);
                 break;
             default:
@@ -124,7 +124,6 @@ public class FrontController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
        request.setAttribute("ShoppingCartContens", logic.getShoppingcart());
        request.getRequestDispatcher("shoppingcart.jsp").forward(request, response);
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
