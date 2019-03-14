@@ -14,12 +14,14 @@ package data;
 public class Line {
     private CompleteCupCake cupcake = new CompleteCupCake("Choko",2);
     private int qty;
+    private int price;
     //private int invoiceID;
 
-    public Line(CompleteCupCake cupcake, int qty/*, int invoiceID*/) {
+    public Line(CompleteCupCake cupcake, int qty, int price /*, int invoiceID*/) {
         this.cupcake = cupcake;
         this.qty = qty;
-        //this.invoiceID = invoiceID;
+        this.price = price;
+         //this.invoiceID = invoiceID;
     }
 
     public CompleteCupCake getCupcake() {

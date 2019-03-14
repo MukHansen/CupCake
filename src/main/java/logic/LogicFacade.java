@@ -8,6 +8,8 @@ package logic;
 import data.CompleteCupCake;
 import data.DBAccessor;
 import java.util.ArrayList;
+import static java.util.Collections.list;
+import java.util.List;
 
 /**
  *
@@ -32,5 +34,10 @@ public class LogicFacade extends CalculateNewBalance {
         int Balance = calculateNewBalance(data.getBalance(name), supFromBalance);
 
         data.setBalance(name, Balance);
+    }
+
+    public List getShoppingcart() {
+        return data.getShoppingcart();
+         
     }
 }

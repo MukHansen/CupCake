@@ -7,6 +7,7 @@ package presentation;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -119,7 +120,10 @@ public class FrontController extends HttpServlet {
         request.getRequestDispatcher("shop.jsp").forward(request, response);
     }
 
-    private void Shoppingcart(HttpServletRequest request, HttpServletResponse response) {
+    private void Shoppingcart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+       request.setAttribute("ShoppingCartContens", logic.getShoppingcart());
+       request.getRequestDispatcher("shoppingcart.jsp").forward(request, response);
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

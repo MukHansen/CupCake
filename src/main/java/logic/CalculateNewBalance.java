@@ -17,14 +17,11 @@ import java.util.ArrayList;
 public class CalculateNewBalance{
     private ShoppingCart  shoppingcart = new ShoppingCart();
     private CompleteCupCake cupcake = new CompleteCupCake("choko", 0);
-    private Line LineI = new Line(cupcake,2);
+    private Line LineI = new Line(cupcake,2, 50);
     private DBAccessor dBA = new DBAccessor();
 
-    public int calculateNewBalance(int userBalance, int dif) {
-        // kan give problemer (skal måske catch dif = null eller dif = 0)
-        int balance = userBalance;
-        int diffrences = dif;
-        int newBalance = balance - dif;
+     public int calculateNewBalance(int userBalance, int dif) {
+        int newBalance = userBalance - dif;
         return newBalance;
     }
     

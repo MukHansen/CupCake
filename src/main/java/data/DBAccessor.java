@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -181,6 +182,11 @@ public class DBAccessor {
             e.printStackTrace();
         }
         return balance;
+    }
+
+    public List getShoppingcart() {
+       ShoppingCart sc = new ShoppingCart();
+        return sc.getLineItems();
     }
     
 }
