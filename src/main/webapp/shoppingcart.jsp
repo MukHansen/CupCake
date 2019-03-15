@@ -17,6 +17,11 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     </head>
     <body>
+        <style>
+            h3{
+                    text-align: right;
+                }
+        </style>
         <div class="container">
             <h2>Shoppingcart</h2>
             <p>find inspiration her: https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_table_basic&stacked=h</p>            
@@ -52,11 +57,11 @@
         </table
         </body
         <form action="">
-        TotalPrice:<br>
+        <h3> TotalPrice:<br>
         <input type="text" name="TotalPrice" value ="getTotalPrice" disabled>
         <br>
         <form action="" method="GET">
-            <input type="submit" value="Confirm"/>
+            <input type="submit" value="Confirm"/> </h3>
         </form>
 </html>
 

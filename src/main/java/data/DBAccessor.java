@@ -190,11 +190,11 @@ public class DBAccessor {
         return sc.getLineItems();
     }
 
-    public VerifyLogin VeryfiLogin(String name, String password) {
-        VerifyLogin verifylogin = null;
+    public Boolean VeryfiLogin(String name, String password) {
+        Boolean login = false;
         String DBname;
         String DBpassword;
-        boolean login = false;
+        
 
         try {
             DBConnector c = new DBConnector();
@@ -209,16 +209,15 @@ public class DBAccessor {
                 DBpassword = rs.getString("UserPassword");
 
                 if (DBname.equals(name) && DBpassword.equals(password)) {
-                    System.out.println("OK");
+                    
                     login = true;
                 }
-                System.out.println(name + password + " " + DBname + DBpassword);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return verifylogin;
+        return login;
     }
 
     public List UpdateShoppingcart(List<Line> list) {
