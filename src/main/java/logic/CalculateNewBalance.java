@@ -9,7 +9,7 @@ import data.CompleteCupCake;
 import data.DBAccessor;
 import data.Line;
 import data.ShoppingCart;
-import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author Christian Ambjørn Kehr
@@ -25,11 +25,12 @@ public class CalculateNewBalance{
         return newBalance;
     }
     
-    public double calculateTotalPrice(ArrayList<Line> LineItems){
+    public double calculateTotalPrice(List<Line> LineItems){
         double price = 0;
         double priceOfTheseCupcakes = 0;
         
         for (Line LineI : LineItems) {
+            //dBA bør nok gå gennem frontcontroller metode (ved det er kringet)
             priceOfTheseCupcakes = LineI.getQty() * dBA.getCupCakePrice(cupcake.getName());
             price = price + priceOfTheseCupcakes;
         }

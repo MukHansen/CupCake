@@ -14,6 +14,8 @@ package data;
 public class Line {
     private CompleteCupCake cupcake = new CompleteCupCake("Choko",2);
     private int qty;
+
+   
     private double price;
     //private int invoiceID;
 
@@ -30,5 +32,9 @@ public class Line {
 
     public int getQty() {
         return qty;
+    }
+    
+     public double getPrice() {
+        return price;
     }
 }

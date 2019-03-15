@@ -31,26 +31,32 @@
                 </thead>
                 <tbody>
                     <tr>
-                <c:forEach items="${shoppingcart}" var="element"> 
+                <c:forEach items="${"shoppingcart"}" var="element"> 
                     <tr>    
                         <td>${line.Name}</td>
                         <td>${Line.qty}</td> 
                         <td>${Line.price}</td>
-                        <td>${Line.total}</td>
+                        <td>${Line.qty * Line.price}</td>
 
                     </tr>
                 </c:forEach>
                 <%
 
                 %>
-            </table
+
+
 
         </div>
     </div>
-
-</body
-<form action="" method="GET">
-    <input type="submit" value="Confirm"/>
-</form>
+    
+        </table
+        </body
+        <form action="">
+        TotalPrice:<br>
+        <input type="text" name="TotalPrice" value ="getTotalPrice" disabled>
+        <br>
+        <form action="" method="GET">
+            <input type="submit" value="Confirm"/>
+        </form>
 </html>
 

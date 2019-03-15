@@ -40,7 +40,16 @@ public class LogicFacade extends CalculateNewBalance {
     public List getShoppingcart() {
         return data.getShoppingcart();
     }
-    public List addContentToShoppingcart(ArrayList<Line> list){
-        return data.addToShoppingcart(list);
+
+    public List addContentToShoppingcart(List<Line> list) {
+        return data.UpdateShoppingcart(list);
+    }
+    // setShoppingcart skal muligvis kaldes af shoppingcart eller kalde metoden til at aktivere shoppingcart
+
+    public double setShoppingcartPrice(List res) {
+        double totalPrice = calculateTotalPrice(res);
+        //hvordan kommer man over i sin shoppingcart her fra.... skal man evt lave kald fra shop.submit til shoppingcart som henter data selv?
+        //presentation.case=shoppingcart(List shoppingcart, double totalprice)
+        return totalPrice;
     }
 }

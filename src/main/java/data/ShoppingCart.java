@@ -18,4 +18,8 @@ public class ShoppingCart {
     public List<Line> getLineItems() {
         return LineItems;
     }
+    public void addToCart(Line line){
+        LineItems.add(line);
+        
+    }
 }

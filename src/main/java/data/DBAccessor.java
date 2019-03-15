@@ -18,6 +18,7 @@ import java.util.List;
  */
 public class DBAccessor {
     private ShoppingCart sc = new ShoppingCart();
+
     /*
     public static void main(String[] args) {
       
@@ -102,7 +103,7 @@ public class DBAccessor {
         return price;
     }
 
-     public User getUser(String name) {
+    public User getUser(String name) {
         User user = null;
 
         try {
@@ -125,7 +126,7 @@ public class DBAccessor {
         }
         return user;
     }
-    
+
     public User createUser(String name, String password, String email, int balance) {
         User user = null;
 
@@ -165,14 +166,15 @@ public class DBAccessor {
         }
         return balance;
     }
-    public double setBalance(String name, double newUserBalance){
+
+    public double setBalance(String name, double newUserBalance) {
         
-        double balance = newUserBalance; 
+        double balance = newUserBalance;
         try {
             DBConnector c = new DBConnector();
             Connection connection = c.getConnection();
 
-            String insert = "UPDATE Users SET Users.Userbalance =" + newUserBalance + " WHERE UserName = '" + name + "';"; 
+            String insert = "UPDATE Users SET Users.Userbalance =" + newUserBalance + " WHERE UserName = '" + name + "';";
 
             Statement stmt = connection.createStatement();
             PreparedStatement preparedStmt = connection.prepareStatement(insert);
@@ -187,12 +189,12 @@ public class DBAccessor {
     public List getShoppingcart() {
         return sc.getLineItems();
     }
-    
+
     public VerifyLogin VeryfiLogin(String name, String password) {
         VerifyLogin verifylogin = null;
         String DBname;
         String DBpassword;
-        boolean login = false; 
+        boolean login = false;
 
         try {
             DBConnector c = new DBConnector();
@@ -205,27 +207,31 @@ public class DBAccessor {
             while (rs.next()) {
                 DBname = rs.getString("UserName");
                 DBpassword = rs.getString("UserPassword");
-                
-                if (DBname.equals(name) && DBpassword.equals(password)){
+
+                if (DBname.equals(name) && DBpassword.equals(password)) {
                     System.out.println("OK");
                     login = true;
                 }
                 System.out.println(name + password + " " + DBname + DBpassword);
             }
-           
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         return verifylogin;
-    } 
+    }
 
-    public List addToShoppingcart(ArrayList<Line> list) {
+    public List UpdateShoppingcart(List<Line> list) {
         List res = null;
-        CompleteCupCake cupcake = new CompleteCupCake("Jordbær", 25);
-        Line line = new Line(cupcake, 2, 25);
-        for (Line l : list) {
-            res.add(l);
+        //CompleteCupCake cupcake = new CompleteCupCake("Jordbær", 25);
+        //Line line = new Line(cupcake, 2, 25);
+        //for (Line l : list) {
+        //  res.add(l);
+
+        for (Line newLine : list) {
+            sc.addToCart(newLine);
         }
-        return res;
+        return res = sc.getLineItems();
+        
     }
 }

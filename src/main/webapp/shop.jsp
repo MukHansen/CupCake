@@ -95,7 +95,7 @@
                 %>
             </tbody>
         </table>
-                <h3><button class="button button1" action="<%-- request.setAttribute("order", shoppingcartContent); --%>">Submit</button></h3>
+                <h3><button class="button button1" action="<% request.setAttribute("order", "shoppingcartContent"); %>">Submit</button></h3>
             <%-- 
             if (%> input   <% != 0){
                 

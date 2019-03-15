@@ -118,15 +118,17 @@ public class FrontController extends HttpServlet {
         request.getSession().setAttribute("username", username);
         
         request.getRequestDispatcher("shop.jsp").forward(request, response);
-        request.getSession().getAttribute("order");
-        
-        request.setAttribute("order", logic.addContentToShoppingcart(shoppingcartContent));
+        //request.getSession().getAttribute("order");
+       
+        request.getAttribute("order");
     }
 
     private void Shoppingcart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
        request.setAttribute("ShoppingCartContens", logic.getShoppingcart());
        request.getRequestDispatcher("shoppingcart.jsp").forward(request, response);
+       request.setAttribute("getTotalPrice", logic.setShoppingcartPrice(logic.getShoppingcart()));
     }
 
 }
