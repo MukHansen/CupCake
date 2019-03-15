@@ -65,12 +65,11 @@
                     margin: 10px 10px 0px 0px;
                 }
                 .button {
-                    background-color: #4CAF50; /* Green */
+                    background-color: #4CAF50;
                     border-radius: 20px;
                     color: black;
                     padding: 16px 32px;
                     text-align: center;
-                    text-decoration: none;
                     display: inline-block;
                     font-size: 16px;
                     margin: 4px 2px;
@@ -83,32 +82,37 @@
         <table class="table table-striped">
 
             <thead><tr><th>Cupcake name</th><th>Price</th><th>Qantity</th></tr></thead> <tbody>
+                        <% ArrayList<Line> sc = new ArrayList<>(); %>
                         <% List<CompleteCupCake> cupCakes = (List<CompleteCupCake>) request.getAttribute("mytable");
-                            for (CompleteCupCake cupcake : cupCakes) {
+                            for (int i = 0; i < cupCakes.size(); i++) {
                         %>
 
                 <tr>
-                    <td><%= cupcake.getName()%></td><td><%= cupcake.getPrice()%></td><td><input></td>
+                    <td><%= cupCakes.get(i).getName()%></td><td><%= cupCakes.get(i).getPrice()%></td><td><input type="number" min="0" value="0" ></td>
                 </tr>
                 <%
                     }
                 %>
-            </tbody>
-        </table>
-                <h3><button class="button button1" action="<% request.setAttribute("order", "shoppingcartContent"); %>">Submit</button></h3>
-            <%-- 
-            if (%> input   <% != 0){
-                
-            }
-                --%>
-                
-                
-                
-        <%--  <% List<CompleteCupCake> cupCakes = (List<CompleteCupCake>) request.getAttribute("mytable"); 
-          %>
-          <select class="dropddown">
-              <option value="mytable">Choose CupCake</option>
-              <% for (CompleteCupCake cupCake : cupCakes) {%>
+            <h3><button class="button button1" action="<%  %>">Submit and go to shoppingcart</button></h3>
+        </tbody>
+    </table>
+            <form action="<%  %>" method="POST">
+        <input type="hidden" name="username" value="<%= sc%>" />
+        <input id="button1" type="submit" value="Submit" >
+    </form>
+    <%-- 
+    if (%> input   <% != 0){
+        
+    }
+    --%>
+
+
+
+    <%--  <% List<CompleteCupCake> cupCakes = (List<CompleteCupCake>) request.getAttribute("mytable"); 
+      %>
+      <select class="dropddown">
+          <option value="mytable">Choose CupCake</option>
+          <% for (CompleteCupCake cupCake : cupCakes) {%>
 
             <option value="cupcakes"><%= cupCake.getName() + " " + cupCake.getPrice()%></option>
             <% }%>
@@ -117,5 +121,5 @@
             <input type="numbers" name="Quantity"/>
             <input type="submit" value="Accept"/>
         </form> --%>
-    </body>
+</body>
 </html>
